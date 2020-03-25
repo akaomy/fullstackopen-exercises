@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import Header from './components/Header';
 import Content from './components/Content';
 import Total from './components/Total';
+import DevCampApp from './components/DevCampApp';
 import './index.css';
+import { BrowserRouter, Router, Link } from 'react-router-dom';
 
 const App = () => {
     const course = {
@@ -26,6 +28,7 @@ const App = () => {
 
     return (
         <div>
+            <DevCampApp/>
             <Header course={course.name}/>
             <Content 
                 partsName={
@@ -40,4 +43,9 @@ const App = () => {
     )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
+    , 
+    document.getElementById('root'));
